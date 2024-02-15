@@ -4,7 +4,11 @@ Dumps the code and data memory of emulator applications based on `SimU8.dll`.
 
 ## Usage
 ```
-dump.exe <code|data|both> <pid>
+Usage: D:\GWE\git\RomDumper\dump.exe <option> <pid>
+
+  <option>        Can be 'code' for code memory; 'data' for data segment 0;
+                  or 'both' for both of the above.
+  <pid>           The process ID (PID) of the emulator.
 ```
 
 ## Building

@@ -96,7 +96,10 @@ int digits_only(const char *s)
 
 int main(int argc, char **argv) {
 	if (argc != 3) {
-		printf("Usage: %s <code|data|both> <pid>\n", argv[0]);
+		printf("Usage: %s <option> <pid>\n\n", argv[0]);
+		printf("  <option>        Can be 'code' for code memory; 'data' for data segment 0;\n");
+		printf("                  or 'both' for both of the above.\n");
+		printf("  <pid>           The process ID (PID) of the emulator.\n");
 		return -1;
 	}
 
@@ -117,11 +120,6 @@ int main(int argc, char **argv) {
 
 	if (digits_only(argv[2]) == 0 || sscanf(argv[2], "%" SCNd32, &pid) == 0) {
 		printf("Invalid PID: %s\n", argv[2]);
-		return -1;
-	}
-
-	if (!dump_rom && !dump_ram) {
-		printf("Usage: %s code|data|both <pid>\n", argv[0]);
 		return -1;
 	}
 
