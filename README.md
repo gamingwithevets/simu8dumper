@@ -1,12 +1,19 @@
-# RomDumper
-Dumps the ROM and RAM from the official casio calculator emulators
+Dumps the code and data memory of emulator applications based on `SimU8.dll`.
 
-`dump.exe <target> <Emulator PID>`
+**NOTE: `SimU8.dll` MUST NOT BE MODIFIED, OR ELSE THE SCRIPT WON'T WORK!**
 
-You can find the emulator PID from the "Details" tab in task manager
+== Usage ==
+```
+dump.exe <code|data|both> <pid>
+```
 
-The target is either `o`, `a` or `oa` specifying ROM, RAM and both respectively
+== Building ==
+You will need the headers and libraries for the Windows API. Then just use your favorite compiler to compile `dump.c`.
+Make sure to add `-lversion`.
 
-It will attempt to automatically determine the ROM code, but will default to "dump" if it cannot
-
-Pre-built binaries can be downloaded from [here](https://github.com/fxesdev/RomDumper/releases)
+== Supported versions ==
+The dumper supports these `SimU8.dll` versions (check the "File version" field in the DLL properties):
+- 1.11.100.0
+- 1.15.200.0
+- 2.0.100.0
+- 2.10.1.0
