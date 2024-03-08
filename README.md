@@ -2,9 +2,15 @@ Dumps the code and data memory of emulator applications based on `SimU8.dll`.
 
 **NOTE: `SimU8.dll` MUST NOT BE MODIFIED, OR ELSE THE SCRIPT WON'T WORK!**
 
+## Download
+Pre-built binaries can be found on the [Releases](../../releases/latest) page.
+
+## Requirements
+At least Windows Vista.
+
 ## Usage
 ```
-Usage: D:\GWE\git\RomDumper\dump.exe <option> <pid>
+Usage: dump <option> <pid>
 
   <option>        Can be 'code' for code memory; 'data' for data segment 0;
                   or 'both' for both of the above.
@@ -12,8 +18,7 @@ Usage: D:\GWE\git\RomDumper\dump.exe <option> <pid>
 ```
 
 ## Building
-You will need the headers and libraries for the Windows API. Then just use your favorite compiler to compile `dump.c`.
-Make sure to add `-lversion`.
+Run `make` in the root of the repository.
 
 ## Supported versions
 The dumper supports these `SimU8.dll` versions (check the "File version" field in the DLL properties):
