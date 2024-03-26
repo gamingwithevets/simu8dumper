@@ -1,0 +1,30 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        install: mingw-w64-x86_64-toolchain
+    - name: Run make
+      run: make
+    - name: Upload to Releases page
+      uses: softprops/action-gh-release@v2.0.4
+      with:
+        body: "NOTE: This is a continuous release. Binaries are rebuilt automatically when changes are made."
+        name: Continuous build
+        tag_name: continuous
+        files: dump.exe
